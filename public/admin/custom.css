@@ -1,0 +1,28 @@
+#gallery {
+	list-style: none
+}
+
+#gallery li {
+	padding: 10px;
+	margin: 10px;
+	border: 2px dotted #0087F7;
+	position: relative;
+
+}
+
+#gallery li a {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	color: red
+}
+
+#gallery li input {
+	margin-top: 5px;
+	width: 150px;
+}
+
+#gallery img {
+	max-width: 150px;
+}
