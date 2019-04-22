@@ -1,7 +1,7 @@
 
 @extends('admin.layout')
 
-@section('content-header', 'Quản lý cho thuê')
+@section('content-header', 'Quản lý cho mua')
 
 @section('content')
 <!-- Main content -->
@@ -14,7 +14,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <a href="{{ route('rent-apart') }}" class="btn btn-primary">Thêm mới</a>
+          <a href="{{ route('sell-apart') }}" class="btn btn-primary">Thêm mới</a>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -33,7 +33,7 @@
                 <td>-</td>
                 <td><img src="{{ $apart->photo }}" width="120" /></td>
                 <td>
-                  <a href="{{ route('edit-rent-apart', ['id' => $apart->id]) }}" class="btn btn-info btn-xs">sửa</a>
+                  <a href="{{ route('edit-sell-apart', ['id' => $apart->id]) }}" class="btn btn-info btn-xs">sửa</a>
                   <a href="#" class="btn btn-danger btn-xs btn-remove" data-remove="{{ $apart->id }}" >xóa</a>
                 </td>
               </tr>
@@ -56,7 +56,7 @@
     </div>
     <!-- /.col -->
 
-    @include('admin.rent-apart.form')
+    @include('admin.sell-apart.form')
   </div>
   <!-- /.row -->
 </section>
@@ -73,8 +73,8 @@
           var id = $(this).data('remove');
           var r = confirm("Bạn có muốn tiếp tục xóa!");
           if(r) {
-            $.ajax({url: "{{ route('delete-rent-apart') }}", type: 'post', data: {id: id, _token: _token}, success: function(result){
-                location.reload();
+            $.ajax({url: "{{ route('delete-sell-apart') }}", type: 'post', data: {id: id, _token: _token}, success: function(result){
+              location.reload();
             }});
           }
         });

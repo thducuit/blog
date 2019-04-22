@@ -1,18 +1,18 @@
 <?php
 namespace App\Services\Admin;
 
-use App\RentApart as RentApart;
+use App\SellApart as SellApart;
 
-class RentApartService 
+class SellApartService 
 {
 	public function all()
 	{
-		return RentApart::all();
+		return SellApart::all();
 	}
 
 	public function show($id = 0)
 	{
-		return $id ? RentApart::find($id) : new RentApart;
+		return $id ? SellApart::find($id) : new SellApart;
 	}
 
 	public function create($input)
@@ -20,7 +20,7 @@ class RentApartService
 		$input['photo'] = $this->updatePhoto($input);
 		$input['furniture'] = isset($input['furniture']) ? json_encode($input['furniture']) : '';
 		$input['util'] = isset($input['util']) ? json_encode($input['util']) : '';
-		$rentApart = RentApart::create($input);
+		$rentApart = SellApart::create($input);
 		return $rentApart ? true : false;
 	}
 
@@ -29,13 +29,13 @@ class RentApartService
 		$input['photo'] = $this->updatePhoto($input);
 		$input['furniture'] = isset($input['furniture']) ? json_encode($input['furniture']) : '';
 		$input['util'] = isset($input['util']) ? json_encode($input['util']) : '';
-		$rentApart = RentApart::find($input['id'])->update($input);
+		$rentApart = SellApart::find($input['id'])->update($input);
 		return $rentApart ? true : false;
 	}
 
 	public function delete($id = 0)
 	{
-		$apart = RentApart::find($id);
+		$apart = SellApart::find($id);
 		$apart->delete();
 	}
 

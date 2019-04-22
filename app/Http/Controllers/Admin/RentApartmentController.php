@@ -29,12 +29,22 @@ class RentApartmentController extends Controller
 
     public function upsert(Request $request)
     {
-    	$id = $request->input('id');
-    	if($id) {
+    	$id = (int)$request->input('id', 0);
+    	if($id != 0) {
             $this->rentApartService->update($request->all());
     	}else {
     		$this->rentApartService->create($request->all());
     	}
     	return redirect()->route('rent-apart');
+    }
+
+    public function delete(Request $request) 
+    {
+        if($request->ajax()) {
+            $id = (int)$request->input('id', 0);
+            $this->rentApartService->delete($id);
+            return response(['code' => 200]);
+        }
+        return response(['code' => 400]);
     }
 }

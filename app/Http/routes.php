@@ -12,7 +12,12 @@
 */
 
 require "admin_routes.php";
+require "web_routes.php";
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::auth();
+
+

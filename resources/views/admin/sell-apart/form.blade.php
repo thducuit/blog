@@ -1,4 +1,4 @@
-<form role="form" method="POST" action="{{ route('upsert-rent-apart') }}">
+<form role="form" method="POST" action="{{ route('upsert-sell-apart') }}">
   {{ csrf_field() }}
   
   <div class="col-xs-8">
@@ -7,7 +7,7 @@
         <h3 class="box-title">Thông tin chung</h3>
       </div>
       <div class="box-content">
-          @include('admin.rent-apart.parts.general', ['apartment' => $apartment])
+          @include('admin.sell-apart.parts.general', ['apartment' => $apartment])
       </div>  
       <div class="box-footer">
           <button type="submit" class="btn btn-primary">{{ $apartment->id ? 'Cập nhật' : 'Tạo mới' }}</button>
@@ -21,7 +21,7 @@
         <h3 class="box-title">Thông tin cơ bản</h3>
       </div>
       <div class="box-content">
-          @include('admin.rent-apart.parts.basic', ['apartment' => $apartment])
+          @include('admin.sell-apart.parts.basic', ['apartment' => $apartment])
       </div>  
     </div>
   </div>
@@ -32,7 +32,7 @@
         <h3 class="box-title">Nội thất</h3>
       </div>
       <div class="box-content">
-          @include('admin.rent-apart.parts.furniture', ['apartment' => $apartment])
+          @include('admin.sell-apart.parts.furniture', ['apartment' => $apartment])
       </div>  
     </div>
   </div>
@@ -43,7 +43,7 @@
         <h3 class="box-title">Tiện nghi</h3>
       </div>
       <div class="box-content">
-          @include('admin.rent-apart.parts.util', ['apartment' => $apartment])
+          @include('admin.sell-apart.parts.util', ['apartment' => $apartment])
       </div>  
     </div>
   </div>
@@ -54,7 +54,7 @@
         <h3 class="box-title">Ưu điểm ngôi nhà</h3>
       </div>
       <div class="box-content">
-          @include('admin.rent-apart.parts.advantage', ['apartment' => $apartment])
+          @include('admin.sell-apart.parts.advantage', ['apartment' => $apartment])
       </div>  
     </div>
   </div>

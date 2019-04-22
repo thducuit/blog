@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RentApart extends Model
+class SellApart extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'rent_aparts';
+    protected $table = 'sell_aparts';
 
 
     protected $guarded = array('id');
