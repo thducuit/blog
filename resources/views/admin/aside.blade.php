@@ -54,5 +54,18 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Danh mục</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Quản lý chung</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">2</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/admin/district"><i class="fa fa-circle-o"></i> Quận</a></li>
+            <li><a href="/admin/ward"><i class="fa fa-circle-o"></i> Phường</a></li>
+          </ul>
+        </li>
       </ul>
     </section>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\SellApartService as SellApartService;
+use App\Services\Admin\DistrictService as DistrictService;
 
 class SellApartmentController extends Controller
 {
@@ -16,13 +17,15 @@ class SellApartmentController extends Controller
     public function __construct()
     {
     	$this->sellApartService = new SellApartService;
+        $this->districtService = new DistrictService;
     }
 
     public function index($id = 0) 
     {
         return view('admin.sell-apart.index', [
     		'list' => $this->sellApartService->all(),
-            'apartment' => $this->sellApartService->show($id)
+            'apartment' => $this->sellApartService->show($id),
+            'districts' => $this->districtService->all()
     	]);
     }
 

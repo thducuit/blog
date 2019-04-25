@@ -6,23 +6,29 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\RentApartService as RentApartService;
+use App\Services\Admin\DistrictService as DistrictService;
+
 
 class RentApartmentController extends Controller
 {
     //
 
     private $rentApartService;
+    private $districtService;
+
 
     public function __construct()
     {
     	$this->rentApartService = new RentApartService;
+        $this->districtService = new DistrictService;
     }
 
     public function index($id = 0) 
     {
         return view('admin.rent-apart.index', [
     		'list' => $this->rentApartService->all(),
-            'apartment' => $this->rentApartService->show($id)
+            'apartment' => $this->rentApartService->show($id),
+            'districts' => $this->districtService->all()
     	]);
     }
 

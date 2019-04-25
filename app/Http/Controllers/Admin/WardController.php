@@ -7,22 +7,26 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\WardService as WardService;
+use App\Services\Admin\DistrictService as DistrictService;
 
 class WardController extends Controller
 {
     //
     private $wardService;
+    private $districtService;
 
     public function __construct()
     {
-    	$this->wardService = new WardService;
+        $this->wardService = new WardService;
+    	$this->districtService = new DistrictService;
     }
 
     public function index($id = 0) 
     {
         return view('admin.ward.index', [
     		'list' => $this->wardService->all(),
-            'ward' => $this->wardService->show($id)
+            'ward' => $this->wardService->show($id),
+            'districts' => $this->districtService->all()
     	]);
     }
 

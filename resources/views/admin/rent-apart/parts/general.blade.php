@@ -43,8 +43,11 @@
 
 	<div class="form-group">
 	  <label for="district">Quận</label>
-	  <select class="form-control" id="district">
-	    <option></option>
+	  	<select class="form-control" id="district" name="district">
+	  		<option value="0">Chọn Quận</option>
+	    	@foreach($districts as $district)
+	        <option value="{{$district->id}}" {{ $apartment->district == $district->id ? 'selected':'' }}>{{$district->name}}</option>
+	      @endforeach
 	  </select>
 	</div>
 
